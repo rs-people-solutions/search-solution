@@ -44,3 +44,34 @@
         *   On **UPDATE**: updates the existing record in Meilisearch.
         *   On **DELETE**: removes record from Meilisearch.
     4.  Meilisearch index remains up-to-date in near real-time.
+
+
+<br>
+<br>
+<br>
+<br>
+
+**This diagram illustrates the interaction between the different components for both search requests and data synchronization.**
+
+```mermaid
+graph TD
+    subgraph "User Interaction"
+        User -- "1. Sends Search Query (q=John)" --> API
+        API -- "4. Returns Search Results" --> User
+    end
+
+    subgraph "Core Services"
+        API[API / Frontend] -- "2. Forwards Query" --> Meilisearch
+        Meilisearch[🚀 Meilisearch Engine] -- "3. Searches Index" --> API
+        Worker[🔧 Background Worker] -- "C. Updates Index (Add/Update/Delete)" --> Meilisearch
+    end
+
+    subgraph "Data Synchronization Backend"
+        DB[👤 Customer Database Simulator] -- "A. Publishes Change Event" --> PubSub(ZMQ Pub/Sub)
+        PubSub -- "B. Delivers Event" --> Worker
+    end
+
+    style DB fill:#d5f5e3
+    style Meilisearch fill:#fdebd0
+    style Worker fill:#eaf2f8
+    style API fill:#eaf2f8    
