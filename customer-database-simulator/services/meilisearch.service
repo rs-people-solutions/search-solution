@@ -1,0 +1,17 @@
+[Unit]
+Description=Meilisearch Search Engine
+After=network.target
+
+[Service]
+User=your-user
+# Set working directory to DB path
+WorkingDirectory=/var/lib/meilisearch
+# Full path to executable and DB
+ExecStart=/usr/local/bin/meilisearch --db-path /var/lib/meilisearch --http-addr 0.0.0.0:7700
+Restart=always
+RestartSec=5s
+# Disable analytics
+Environment=MEILI_NO_ANALYTICS=true
+
+[Install]
+WantedBy=multi-user.target

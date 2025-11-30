@@ -1,0 +1,14 @@
+[Unit]
+Description=Customer Database Simulator
+After=network.target
+
+[Service]
+User=your-user
+WorkingDirectory=/path/to/your/customer-database-simulator
+Environment="PATH=/path/to/your/customer-database-simulator/.venv/bin"
+ExecStart=/path/to/your/customer-database-simulator/.venv/bin/gunicorn -b 0.0.0.0:8080 simulator:app
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
