@@ -19,22 +19,15 @@ export const CustomerList: React.FC<CustomerListProps> = ({
     return <div className="error">Error: {error}</div>;
   }
 
-  // Filter out customers where ALL three fields are missing
-  const validCustomers = customers.filter(customer =>
-    customer.firstName ||
-    customer.lastName ||
-    (customer.email && customer.email.length > 0)
-  );
-
-  if (validCustomers.length === 0) {
+  if (customers.length === 0) {
     return <div className="no-results">No customers found</div>;
   }
 
   return (
     <div className="customer-list">
-      <h2>Results ({validCustomers.length})</h2>
+      <h2>Results ({customers.length})</h2>
       <ul>
-        {validCustomers.map((customer) => (
+        {customers.map((customer) => (
           <li key={customer.id} className="customer-item">
             <div className="customer-info">
               <strong>
