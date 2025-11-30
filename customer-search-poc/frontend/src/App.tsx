@@ -53,7 +53,7 @@ function App() {
 
       <main className="app-main">
         <div className="search-section">
-          <SearchBox onSearch={handleSearch} disabled={loading} />
+          <SearchBox onSearch={handleSearch} />
         </div>
 
         <CustomerList
