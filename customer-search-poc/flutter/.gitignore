@@ -1,0 +1,61 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ / IDE
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+
+# Flutter / Dart / Pub
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Runner.xcworkspace/
+ios/Flutter/Generated.xcconfig
+
+# Android / Gradle
+**/android/.gradle/
+**/android/app/build/
+**/android/**/build/
+local.properties
+
+# Symbolication / obfuscation
+app.*.symbols
+app.*.map.json
+
+# Signing keys / secrets
+*.jks
+*.keystore
+*.p12
+*.pem
+*.pfx
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Optional: generated files from codegen (enable if you regenerate in CI)
+# *.g.dart
