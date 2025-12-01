@@ -22,7 +22,8 @@ app.get("/search", async (req: Request, res: Response) => {
     const result = await axios.post(`${MEILI_URL}/indexes/customers/search`, {
       q: q.trim(),
       limit,
-      offset
+      offset,
+      sort: ["id:desc"]
     });
 
     res.json({
