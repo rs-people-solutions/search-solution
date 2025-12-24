@@ -1,4 +1,4 @@
-# HackMotion homework customer database simulator
+# Database simulator
 
 The service simulates a customer database system with a paginated API and a real-time message queue for data change notifications.
 
